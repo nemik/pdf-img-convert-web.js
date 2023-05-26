@@ -1,4 +1,4 @@
-# pdf-img-convert.js
+# pdf-img-convert-web.js
 **A pure javascript package to convert a PDF into images**
 
 **This package is powered mainly by Mozilla's [PDF.js](https://github.com/mozilla/pdf.js)**
@@ -15,7 +15,7 @@ This solution solely uses javascript arrays, cleaning up the pipeline significan
 ## Installation
 
 ```bash
-npm install pdf-img-convert
+npm install pdf-img-convert-web
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ The package returns an `Array` of `Uint8Array` objects, each of which represents
 Here are some examples of its usage - obviously import the module first:
 
 ```javascript
-var pdf2img = require('pdf-img-convert');
+var pdf2img = require('pdf-img-convert-web');
 ```
 
 The package has 1 function - `convert`. It accepts the following pdf formats as input:
@@ -51,33 +51,6 @@ Here's an example of how to use it in synchronous code:
 var outputImages1 = pdf2img.convert('http://www.example.com/pdf_online.pdf');
 var outputImages2 = pdf2img.convert('../pdf_in_local_filesystem.pdf');
 
-// From here, the images can be used for other stuff or just saved if that's required:
-
-var fs = require('fs');
-
-outputImages1.then(function(outputImages) {
-    for (i = 0; i < outputImages.length; i++)
-        fs.writeFile("output"+i+".png", outputImages[i], function (error) {
-          if (error) { console.error("Error: " + error); }
-        });
-    });
-```
-
-It's a lot easier and cleaner to implement inside an `async function` using `await`:
-
-```javascript
-
-(async function () {
-  pdfArray = await pdf2img.convert('http://www.example.com/pdf_online.pdf');
-  console.log("saving");
-  for (i = 0; i < pdfArray.length; i++){
-    fs.writeFile("output"+i+".png", pdfArray[i], function (error) {
-      if (error) { console.error("Error: " + error); }
-    }); //writeFile
-  } // for
-})();
-
-```
 
 There is also an optional second `conversion_config` argument which accepts an object like this:
 
@@ -86,7 +59,7 @@ There is also an optional second `conversion_config` argument which accepts an o
   width: 100 //Number in px
   height: 100 // Number in px
   page_numbers: [1, 2, 3] // A list of pages to render instead of all of them
-  base64: True,
+  base64: true,
   scale: 2.0
 }
 ```

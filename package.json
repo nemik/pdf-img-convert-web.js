@@ -1,5 +1,5 @@
 {
-  "name": "pdf-img-convert",
+  "name": "pdf-img-convert-web",
   "version": "1.2.1",
   "description": "A simple module to convert PDF files into image buffers (without filesystem usage)",
   "main": "pdf-img-convert.js",
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ol-th/pdf-img-convert.js.git"
+    "url": "git+https://github.com/nemik/pdf-img-convert-web.js.git"
   },
   "keywords": [
     "pdf",
@@ -28,10 +28,10 @@
     "png",
     "convert"
   ],
-  "author": "Oliver Thwaites",
+  "author": "Nemanja Stefanović",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ol-th/pdf-img-convert.js/issues"
+    "url": "https://github.com/nemik/pdf-img-convert-web.js/issues"
   },
-  "homepage": "https://github.com/ol-th/pdf-img-convert.js#readme"
+  "homepage": "https://github.com/nemik/pdf-img-convert-web.js/#readme"
 }
