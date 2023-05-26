@@ -27,10 +27,7 @@ const isURL = require('is-url');
 const pdfjs = require('pdfjs-dist/legacy/build/pdf.js');
 const Canvas = require("canvas");
 const assert = require("assert").strict;
-const fs = require("fs");
 const util = require('util');
-
-const readFile = util.promisify(fs.readFile);
 
 function NodeCanvasFactory() {}
 NodeCanvasFactory.prototype = {
@@ -78,10 +75,6 @@ module.exports.convert = async function (pdf, conversion_config = {}) {
     // Support for base64 encoded pdf input
     else if (/pdfData:pdf\/([a-zA-Z]*);base64,([^"]*)/.test(pdf)) {
       pdfData = new Uint8Array(Buffer.from(pdf.split(',')[1], 'base64'));
-    }
-    // Support for filepath input
-    else {
-      pdfData = new Uint8Array(await readFile(pdf));
     }
   }
   // Support for buffer input
