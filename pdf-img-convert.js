@@ -172,7 +172,7 @@ async function doc_render(pdfDocument, pageNo, canvasFactory, conversion_config)
   let renderTask = await page.render(renderContext).promise;
 
   // Convert the canvas to an image buffer.
-  let image = canvasAndContext.canvas.toDataURL('image/png')
+  let image = await canvasAndContext.canvas.toDataURL('image/png')
 
   return image;
 } // doc_render
