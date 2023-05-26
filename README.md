@@ -5,6 +5,8 @@
 
 ## Motivation
 
+**This is a fork of [pdf-img-convert](https://github.com/ol-th/pdf-img-convert.js) with minor changes to offer browser support and not require a NodeJS runtime.**
+
 There are a lot of solutions for converting PDFs with javascript already but they all make excessive use of the filesystem in the form of
 temporary files and use non-native binaries like ghostscript.
 
