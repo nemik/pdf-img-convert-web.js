@@ -159,7 +159,7 @@ async function doc_render(pdfDocument, pageNo, canvasFactory, conversion_config)
   else if (conversion_config.height)
     outputScale = conversion_config.height / viewport.height;
   if (outputScale != 1 && outputScale > 0)
-    viewport = page.getViewport({ scale: outputScal, rotation: rotation });
+    viewport = page.getViewport({ scale: outputScale, rotation: rotation });
 
   let canvasAndContext = canvasFactory.create(
     viewport.width,
