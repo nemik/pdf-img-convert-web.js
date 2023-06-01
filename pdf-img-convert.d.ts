@@ -11,6 +11,8 @@ declare function convert (
     base64?: boolean
     /** Viewport scale as ratio */
     scale?: number
+    /** Rotation of the pages in degrees */
+    rotate?: number
   }
 ): Promise<string[]|Uint8Array[]>
 

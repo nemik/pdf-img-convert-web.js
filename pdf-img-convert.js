@@ -145,9 +145,12 @@ async function doc_render(pdfDocument, pageNo, canvasFactory, conversion_config)
   // Get the page
   let page = await pdfDocument.getPage(pageNo);
 
+  // get rotation
+  let rotation = conversion_config.rotate || 90;
+
   // Create a viewport at 100% scale
   let outputScale = conversion_config.scale || 1.0;
-  let viewport = page.getViewport({ scale: outputScale });
+  let viewport = page.getViewport({ scale: outputScale, rotation: rotation });
 
   // Scale it up / down dependent on the sizes given in the config (if there
   // are any)
@@ -156,7 +159,7 @@ async function doc_render(pdfDocument, pageNo, canvasFactory, conversion_config)
   else if (conversion_config.height)
     outputScale = conversion_config.height / viewport.height;
   if (outputScale != 1 && outputScale > 0)
-    viewport = page.getViewport({ scale: outputScale });
+    viewport = page.getViewport({ scale: outputScal, rotation: rotation });
 
   let canvasAndContext = canvasFactory.create(
     viewport.width,
