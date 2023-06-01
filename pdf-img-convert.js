@@ -146,7 +146,10 @@ async function doc_render(pdfDocument, pageNo, canvasFactory, conversion_config)
   let page = await pdfDocument.getPage(pageNo);
 
   // get rotation
-  let rotation = conversion_config.rotate || 90;
+  let rotation = conversion_config.rotate;
+  if (rotation == null) {
+    rotation = 90;
+  }
 
   // Create a viewport at 100% scale
   let outputScale = conversion_config.scale || 1.0;
